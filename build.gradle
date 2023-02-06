@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+}
+
+group 'com.magento'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+    implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+
+
+    //Cucumber
+    testImplementation 'io.cucumber:cucumber-junit:7.10.1'
+    implementation 'io.cucumber:cucumber-core:7.10.1'
+    implementation 'io.cucumber:cucumber-java:7.10.1'
+
+    //Selenium
+    implementation 'org.seleniumhq.selenium:selenium-java:4.6.0'
+
+    // sikulix
+    implementation 'com.sikulix:sikulixapi:2.0.5'
+
+    //log4j
+    implementation 'org.apache.logging.log4j:log4j-api:2.17.1'
+    implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
+
+    //java faker
+    implementation 'com.github.javafaker:javafaker:1.0.2'
+
+    //Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+
+    implementation 'tech.grasshopper:extentreports-cucumber7-adapter:1.9.2'
+}
+
+test {
+    useJUnitPlatform()
+}
