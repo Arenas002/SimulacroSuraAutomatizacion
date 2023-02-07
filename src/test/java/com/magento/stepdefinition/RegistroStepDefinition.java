@@ -60,7 +60,9 @@ public class RegistroStepDefinition extends WebUI {
     @Cuando("se registra sin correo electrónico")
     public void seRegistraSinCorreoElectrónico() {
         try{
-
+            RegistroPage registroPage = new RegistroPage(driver,3);
+            registroPage.diligenciarCamposRegistroSinCorreo(clienteModel);
+            registroPage.presionarBotonEnviar();
         }catch(Exception exception){
             Assertions.fail(exception.getMessage(),exception);
             LOGGER.error(exception.getMessage(),exception);
@@ -71,7 +73,9 @@ public class RegistroStepDefinition extends WebUI {
     @Entonces("se visualiza un mensaje de campo requerido")
     public void seVisualizaUnMensajeDeCampoRequerido() {
         try{
-
+            RegistroPage registroPage = new RegistroPage(driver,3);
+            Assertions.assertEquals("This is a required field.",registroPage.obtenerMensajeErrorCorreo());
+            quiteDriver();
         }catch(Exception exception){
             Assertions.fail(exception.getMessage(),exception);
             LOGGER.error(exception.getMessage(),exception);

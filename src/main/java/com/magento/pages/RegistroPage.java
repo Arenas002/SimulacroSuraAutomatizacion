@@ -47,6 +47,12 @@ public class RegistroPage extends BasePage {
     private WebElement mensajeDeValidacion;
 
 
+    @CacheLookup
+    @FindBy(id = "email_address-error")
+    private WebElement mensajeErrorCorreo;
+
+
+
 
 
     public RegistroPage(WebDriver driver, int segundos) {
@@ -74,5 +80,20 @@ public class RegistroPage extends BasePage {
 
     public String obtenerMensajeDeTexto(){
         return obtenerTextoDeElemento(mensajeDeValidacion);
+    }
+
+    public void diligenciarCamposRegistroSinCorreo(ClienteModel clienteModel) {
+        try {
+            escribirEnCampoTexto(nombre, clienteModel.getNombre());
+            escribirEnCampoTexto(apellido, clienteModel.getApellido());
+            escribirEnCampoTexto(contraseña, clienteModel.getContraseña());
+            escribirEnCampoTexto(confirmarContraseña, clienteModel.getContraseña());
+        }catch (Exception exception){
+            LOGGER.error("Error llenando los campos de registro");
+        }
+    }
+
+    public String obtenerMensajeErrorCorreo(){
+        return obtenerTextoDeElemento(mensajeErrorCorreo);
     }
 }
