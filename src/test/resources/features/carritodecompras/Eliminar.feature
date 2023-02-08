@@ -2,7 +2,7 @@
 
 Característica: Eliminar productos del carrito de compras
 
-  Regla: como  usuario de la aplicación
+  Regla: como usuario de la aplicación
   quiero eliminar productos del carrito de compras
   para modificar la compra a realizar
 

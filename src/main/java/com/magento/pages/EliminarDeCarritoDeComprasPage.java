@@ -49,6 +49,8 @@ public class EliminarDeCarritoDeComprasPage extends BasePage {
     public void clickEnChaquetas(){
         clickEnElemento(chaquetasLink);
     }
+
+    public  void Scrow()
 //    public void clickEnTallaL(){
 //        clickEnElemento(tallaL);
 //    }
