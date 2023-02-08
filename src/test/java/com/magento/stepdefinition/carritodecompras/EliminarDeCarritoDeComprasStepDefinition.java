@@ -22,8 +22,9 @@ public class EliminarDeCarritoDeComprasStepDefinition extends WebUI {
             EliminarDeCarritoDeComprasPage eliminarDeCarritoDeComprasPage = new EliminarDeCarritoDeComprasPage(driver,3);
             eliminarDeCarritoDeComprasPage.clickEnVentas();
             eliminarDeCarritoDeComprasPage.clickEnChaquetas();
-            eliminarDeCarritoDeComprasPage.clickEnTallaL();
-            
+//            eliminarDeCarritoDeComprasPage.clickEnTallaL();
+            eliminarDeCarritoDeComprasPage.obtenerProductos();
+
         }catch (Exception exception){
             Assertions.fail(exception.getMessage(),exception);
             LOGGER.error(exception.getMessage(),exception);

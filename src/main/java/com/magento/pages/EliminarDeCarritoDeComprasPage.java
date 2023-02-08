@@ -7,6 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EliminarDeCarritoDeComprasPage extends BasePage {
     private static final Logger LOGGER = Logger.getLogger(EliminarDeCarritoDeComprasPage.class);
 
@@ -16,12 +19,12 @@ public class EliminarDeCarritoDeComprasPage extends BasePage {
     private WebElement navegarAVentas;
 
     @CacheLookup
-    @FindBy(xpath = "//body/div[2]/main[1]/div[4]/div[2]/div[1]/div[1]/ul[2]/li[2]/a[1]")
+    @FindBy(xpath = "//*[@id=\"maincontent\"]/div[4]/div[2]/div/div/ul[1]/li[2]/a")
     private WebElement chaquetasLink;
 
     @CacheLookup
-    @FindBy(id = "option-label-size-143-item-169")
-    private WebElement tallaL;
+    @FindBy(css = " div.swatch-option.text#option-label-size-143-item-168")
+    private WebElement tallaM;
 
     @CacheLookup
     @FindBy(xpath = "//*[@id=\"send2\"]")
@@ -30,6 +33,10 @@ public class EliminarDeCarritoDeComprasPage extends BasePage {
     @CacheLookup
     @FindBy(xpath = "/html/body/div[2]/header/div[1]/div/ul/li[2]/span/button")
     private WebElement actionSwith;
+
+    @CacheLookup
+    @FindBy(css = "ol.products.list.items.product-items li div.product-item-info div.swatch-option.text#option-label-size-143-item-168")
+    private WebElement listaProductos;
 
     public EliminarDeCarritoDeComprasPage(WebDriver driver, int segundos) {
         super(driver, segundos);
@@ -42,7 +49,21 @@ public class EliminarDeCarritoDeComprasPage extends BasePage {
     public void clickEnChaquetas(){
         clickEnElemento(chaquetasLink);
     }
-    public void clickEnTallaL(){
-        clickEnElemento(tallaL);
+//    public void clickEnTallaL(){
+//        clickEnElemento(tallaL);
+//    }
+
+    public void obtenerProductos(){
+        List<WebElement> productos = obtenerProductosElementos(listaProductos);
+        List<WebElement> productosFiltrados= new ArrayList<>();
+        for(WebElement elementos: productos){
+           productosFiltrados.add(elementos);
+
+        }
+        for(int i = 0; i < productosFiltrados.size(); i++){
+            clickEnElemento(tallaM);
+        }
+
     }
+
 }
