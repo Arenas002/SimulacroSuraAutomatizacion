@@ -1,11 +1,10 @@
-package com.magento.stepdefinition;
+package com.magento.stepdefinition.login;
 
 import com.github.javafaker.Faker;
 import com.magento.model.ClienteModel;
 import com.magento.pages.LoginPage;
 import com.magento.pages.RegistroPage;
 import com.magento.setup.WebUI;
-import io.cucumber.core.internal.com.fasterxml.jackson.databind.jsontype.impl.AsExistingPropertyTypeSerializer;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;

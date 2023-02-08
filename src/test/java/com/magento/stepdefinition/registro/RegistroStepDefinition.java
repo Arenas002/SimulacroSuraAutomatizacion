@@ -1,4 +1,4 @@
-package com.magento.stepdefinition;
+package com.magento.stepdefinition.registro;
 
 import com.github.javafaker.Faker;
 import com.magento.model.ClienteModel;
