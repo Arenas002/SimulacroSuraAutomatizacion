@@ -8,10 +8,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         publish = true,
-        features = {"src/test/resources/features/registro/registro.feature"},
+        features = {"src/test/resources/features/carritodecompras/Eliminar.feature"},
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:","html:target/register-cucumber-reports.html"},
-        glue = "com.magento.stepdefinition.registro"
+        glue = "com.magento.stepdefinition.carritodecompras"
 )
-public class RegistroRunner {
-
+public class EliminarCarroComprasRunner {
 }

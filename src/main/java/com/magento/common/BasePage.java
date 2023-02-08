@@ -1,12 +1,14 @@
 package com.magento.common;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
+import java.util.List;
 
 public class BasePage {
     private static final Logger LOGGER = Logger.getLogger(BasePage.class);
@@ -92,6 +94,10 @@ protected void escribirEnCampoTexto(WebElement elemento,String value){
             LOGGER.warn(exception.getMessage(),exception);
             return "";
         }
+   }
+
+   protected List<WebElement> obtenerProductosElementos(WebElement elemento){
+        return driver.findElements(By.cssSelector(String.valueOf(elemento)));
    }
 
 }
