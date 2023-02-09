@@ -11,5 +11,3 @@ a
 1src/main/java/com/magento/model/ClienteModel.java,d\8\d868959e2869c15f8b42ca0c3463ffb66e07da1a
 Z
 *src/test/java/com/magento/setup/WebUI.java,3\a\3a396643f715fe19e9d357bb7ea5950a0b1bbdb7
-a
-1src/main/java/com/magento/pages/RegistroPage.java,2\a\2a2aaf228aa850bcf0be591bd4f744fc7f0bbca6
