@@ -1,5 +1,6 @@
 package com.magento.stepdefinition.procesodecompras;
 
+import com.magento.pages.ProcesoDeCompraPage;
 import com.magento.setup.WebUI;
 import com.magento.stepdefinition.login.LoginStepDefinition;
 import io.cucumber.java.es.Cuando;
@@ -14,6 +15,15 @@ public class ProcesoDeComprasStepDefinition extends WebUI {
     @Dado("que el usuario ingresa productos al carrito de compras")
     public void queElUsuarioIngresaProductosAlCarritoDeCompras() {
         try{
+            setUpLog4j2();
+            setUpWebDriver();
+            generalSetUp();
+            ProcesoDeCompraPage procesoDeCompraPage = new ProcesoDeCompraPage(driver,3);
+            procesoDeCompraPage.clickEnlogin();
+            procesoDeCompraPage.diligenciarLogin();
+            procesoDeCompraPage.clickEnBotonLogin();
+            procesoDeCompraPage.agregarProductosMujer();
+            procesoDeCompraPage.agregarProductosHombre();
 
         }catch (Exception exception){
             Assertions.fail(exception.getMessage(),exception);
@@ -25,7 +35,9 @@ public class ProcesoDeComprasStepDefinition extends WebUI {
     @Cuando("se realiza el proceso de compra")
     public void seRealizaElProcesoDeCompra() {
         try{
-
+            ProcesoDeCompraPage procesoDeCompraPage = new ProcesoDeCompraPage(driver,3);
+            procesoDeCompraPage.clickBotonRealizarCompra();
+            procesoDeCompraPage.selecionarEstado();
         }catch (Exception exception){
             Assertions.fail(exception.getMessage(),exception);
             LOGGER.error(exception.getMessage(),exception);
