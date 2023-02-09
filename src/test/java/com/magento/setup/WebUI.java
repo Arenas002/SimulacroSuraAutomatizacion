@@ -23,6 +23,8 @@ public class WebUI {
         driver = new ChromeDriver();
         driver.get(DEMO_QA_URL);
         driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
+
     }
     protected void setUpLog4j2(){
         PropertyConfigurator.configure(USER_DIR.value()+LOG4J_PROPERTIES_FILE_PATH.getValue() );
