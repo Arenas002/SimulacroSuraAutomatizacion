@@ -1,5 +1,6 @@
 package com.magento.stepdefinition.carritodecompras;
 
+import com.magento.pages.AgregarProductosAlCarritoDeComprasPage;
 import com.magento.setup.WebUI;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
@@ -15,6 +16,8 @@ public class AgregarProductosAlCarritoStepDefinition extends WebUI {
             setUpLog4j2();
             setUpWebDriver();
             generalSetUp();
+            AgregarProductosAlCarritoDeComprasPage agregarProductosAlCarritoDeComprasPage = new AgregarProductosAlCarritoDeComprasPage(driver,3);
+            agregarProductosAlCarritoDeComprasPage.clickVentas();
         }catch (Exception exception){
             Assertions.fail(exception.getMessage(),exception);
             LOGGER.error(exception.getMessage(),exception);
@@ -25,7 +28,10 @@ public class AgregarProductosAlCarritoStepDefinition extends WebUI {
     @Cuando("agrega productos de diferentes categorias diferentes al carrito de compras")
     public void agregaProductosDeCategoriasDiferentesAlCarritoDeCompras() {
         try{
-
+            AgregarProductosAlCarritoDeComprasPage agregarProductosAlCarritoDeComprasPage = new AgregarProductosAlCarritoDeComprasPage(driver,3);
+            agregarProductosAlCarritoDeComprasPage.agregarProductosMujer();
+            agregarProductosAlCarritoDeComprasPage.agregarProductosHombre();
+            agregarProductosAlCarritoDeComprasPage.agregarProductosbolsos();
         }catch (Exception exception){
             Assertions.fail(exception.getMessage(),exception);
             LOGGER.error(exception.getMessage(),exception);
@@ -36,7 +42,11 @@ public class AgregarProductosAlCarritoStepDefinition extends WebUI {
     @Entonces("se visualizan los productos en el carrito de compras")
     public void seVisualizanLosProductosEnElCarritoDeCompras() {
         try{
-
+            AgregarProductosAlCarritoDeComprasPage agregarProductosAlCarritoDeComprasPage = new AgregarProductosAlCarritoDeComprasPage(driver,3);
+            agregarProductosAlCarritoDeComprasPage.clickCarritoCompras();
+            agregarProductosAlCarritoDeComprasPage.clickLinkCarrito();
+            Assertions.assertEquals(6, agregarProductosAlCarritoDeComprasPage.obtenerProductosDeCarrito().size());
+            quiteDriver();
         }catch (Exception exception){
             Assertions.fail(exception.getMessage(),exception);
             LOGGER.error(exception.getMessage(),exception);
