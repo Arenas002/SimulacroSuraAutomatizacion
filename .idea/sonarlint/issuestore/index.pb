@@ -7,7 +7,7 @@ _
 /src/main/java/com/magento/util/Log4jValues.java,6\c\6ca12a447cd557f5272a5466081707e9df70b527
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-a
-1src/main/java/com/magento/model/ClienteModel.java,d\8\d868959e2869c15f8b42ca0c3463ffb66e07da1a
-Z
-*src/test/java/com/magento/setup/WebUI.java,3\a\3a396643f715fe19e9d357bb7ea5950a0b1bbdb7
+e
+5src/test/java/com/magento/runners/RegistroRunner.java,0\a\0aadacc05fddc6b5b01bf9ebca988292ca1a9d86
+w
+Gsrc/test/java/com/magento/stepdefinition/login/LoginStepDefinition.java,7\1\7174f7cb9162b0c8ec5c38f1c8ee044f5e5c3e59

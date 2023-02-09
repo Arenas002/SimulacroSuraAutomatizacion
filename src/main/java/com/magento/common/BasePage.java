@@ -78,6 +78,14 @@ protected void escribirEnCampoTexto(WebElement elemento,String value){
         }
    }
 
+    protected void clickJava(WebElement elemento){
+        try{
+            ((JavascriptExecutor)driver).executeScript("arguments[0].click(true);",elemento);
+        }catch (Exception exception){
+            LOGGER.warn(exception.getMessage(),exception);
+        }
+    }
+
    protected boolean estaPresente(WebElement elemento){
         try{
             return elemento.isDisplayed();
