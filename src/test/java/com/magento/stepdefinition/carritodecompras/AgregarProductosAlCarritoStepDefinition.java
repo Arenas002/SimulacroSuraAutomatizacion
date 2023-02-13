@@ -32,6 +32,8 @@ public class AgregarProductosAlCarritoStepDefinition extends WebUI {
             agregarProductosAlCarritoDeComprasPage.agregarProductosMujer();
             agregarProductosAlCarritoDeComprasPage.agregarProductosHombre();
             agregarProductosAlCarritoDeComprasPage.agregarProductosbolsos();
+            agregarProductosAlCarritoDeComprasPage.clickCarritoCompras();
+            agregarProductosAlCarritoDeComprasPage.clickLinkCarrito();
         }catch (Exception exception){
             Assertions.fail(exception.getMessage(),exception);
             LOGGER.error(exception.getMessage(),exception);
@@ -43,8 +45,6 @@ public class AgregarProductosAlCarritoStepDefinition extends WebUI {
     public void seVisualizanLosProductosEnElCarritoDeCompras() {
         try{
             AgregarProductosAlCarritoDeComprasPage agregarProductosAlCarritoDeComprasPage = new AgregarProductosAlCarritoDeComprasPage(driver,3);
-            agregarProductosAlCarritoDeComprasPage.clickCarritoCompras();
-            agregarProductosAlCarritoDeComprasPage.clickLinkCarrito();
             Assertions.assertEquals(6, agregarProductosAlCarritoDeComprasPage.obtenerProductosDeCarrito().size());
             quiteDriver();
         }catch (Exception exception){
