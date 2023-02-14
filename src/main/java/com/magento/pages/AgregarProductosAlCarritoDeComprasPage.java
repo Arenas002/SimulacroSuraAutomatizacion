@@ -40,78 +40,67 @@ public class AgregarProductosAlCarritoDeComprasPage extends BasePage {
     @FindBy(xpath = "//*[@id=\"minicart-content-wrapper\"]/div[2]/div[5]/div/a")
     private WebElement navegarACarritoDeCompras;
 
+    private String tallaMujer = "option-label-size-143-item-166";
+
+    private String colorMujer = "option-label-color-93-item-49";
+
+    private String carrito = "button.action.tocart.primary";
+    private String tallaHombre = "option-label-size-143-item-176";
+    private String colorHombre = "option-label-color-93-item-50";
+
+
     public AgregarProductosAlCarritoDeComprasPage(WebDriver driver, int segundos) {
         super(driver, segundos);
-        pageFactoryInitElement(driver,this);
+        pageFactoryInitElement(driver, this);
     }
 
-    public void clickVentas(){
+    public void clickVentas() {
         clickEnElemento(navegarAVentas);
     }
-    public void clickVentas1(){
+
+    public void clickVentas1() {
         clickEnElemento(navegarAVentas1);
     }
 
-    public void clickCamisetasMujer(){
+    public void clickCamisetasMujer() {
         clickEnElemento(navegarCamisetasMujer);
     }
 
-    public void clickPantalonesHombre(){
+    public void clickPantalonesHombre() {
         clickEnElemento(navegarPantalonesHombre);
     }
-    public void clickCarritoCompras(){
+
+    public void clickCarritoCompras() {
         clickEnElemento(carritoDeCompras);
     }
 
-    public void clickBolsos(){
+    public void clickBolsos() {
         clickEnElemento(navegarBolsos);
     }
-    public void clickLinkCarrito(){
+
+    public void clickLinkCarrito() {
         clickEnElemento(navegarACarritoDeCompras);
     }
 
-
-    public void agregarProductosMujer() throws InterruptedException {
+    public void agregarProductosMujeres() throws InterruptedException {
         clickCamisetasMujer();
-        List<WebElement> listaDeTallas=driver.findElements(By.id("option-label-size-143-item-166"));
-        List<WebElement> listaDeColores=driver.findElements(By.id("option-label-color-93-item-49"));
-        List<WebElement> listaDeBotones=driver.findElements(By.cssSelector("button.action.tocart.primary"));
-
-        for(int i = 0; i < 2; i++){
-            clickEnElemento(listaDeTallas.get(i));
-            clickEnElemento(listaDeColores.get(i));
-            clickEnElemento(listaDeBotones.get(i));
-
-            Thread.sleep(1000);
-
-        }
+        obtenerProductos(tallaMujer, colorMujer, carrito);
     }
 
     public void agregarProductosHombre() throws InterruptedException {
         clickVentas();
         clickPantalonesHombre();
-        List<WebElement> listaDeTallas=driver.findElements(By.id("option-label-size-143-item-176"));
-        List<WebElement> listaDeColores=driver.findElements(By.id("option-label-color-93-item-50"));
-        List<WebElement> listaDeBotones=driver.findElements(By.cssSelector("button.action.tocart.primary"));
-
-        for(int i = 0; i < 2; i++){
-            clickEnElemento(listaDeTallas.get(i));
-            clickEnElemento(listaDeColores.get(i));
-            clickEnElemento(listaDeBotones.get(i));
-
-            Thread.sleep(1000);
-
-        }
+        obtenerProductos(tallaHombre, colorHombre, carrito);
     }
 
     public void agregarProductosbolsos() throws InterruptedException {
         clickVentas1();
         clickBolsos();
-        List<WebElement> listaDeBotones=driver.findElements(By.cssSelector("button.action.tocart.primary"));
-        List<WebElement> listaDeTarjetas=driver.findElements(By.className("product-item-info"));
+        List<WebElement> listaDeBotones = driver.findElements(By.cssSelector("button.action.tocart.primary"));
+        List<WebElement> listaDeTarjetas = driver.findElements(By.className("product-item-info"));
 
 
-        for(int i = 0; i < 2; i++){
+        for (int i = 0; i < 2; i++) {
             Actions accion = new Actions(driver);
             accion.moveToElement(listaDeTarjetas.get(i)).build().perform();
             clickEnElemento(listaDeBotones.get(i));
@@ -121,15 +110,9 @@ public class AgregarProductosAlCarritoDeComprasPage extends BasePage {
         }
     }
 
-public List<WebElement> obtenerProductosDeCarrito(){
-    List<WebElement> listaDeBotones=driver.findElements(By.cssSelector("tbody.cart.item"));
-    return listaDeBotones;
+    public List<WebElement> obtenerProductosDeCarrito() {
+        return driver.findElements(By.cssSelector("tbody.cart.item"));
 
-}
-
-
-
-
-
+    }
 
 }

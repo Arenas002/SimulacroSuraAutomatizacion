@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Assertions;
 
 public class EliminarDeCarritoDeComprasStepDefinition extends WebUI {
 
-    private static final Logger LOGGER = Logger.getLogger(EliminarDeCarritoDeComprasStepDefinition.class);
+
     @Dado("que el usuario ingresa al modulo de ventas")
     public void queElUsuarioIngresaAlModuloDeVentas() {
         try{
@@ -24,10 +24,7 @@ public class EliminarDeCarritoDeComprasStepDefinition extends WebUI {
             eliminarDeCarritoDeComprasPage.obtenerProductos();
 
         }catch (Exception exception){
-            quiteDriver();
-            Assertions.fail(exception.getMessage(),exception);
-            LOGGER.error(exception.getMessage(),exception);
-
+            mensajeError(exception);
         }
     }
 
@@ -38,9 +35,7 @@ public class EliminarDeCarritoDeComprasStepDefinition extends WebUI {
             eliminarDeCarritoDeComprasPage.clickEnCarritoDeCompras();
             eliminarDeCarritoDeComprasPage.clickEnNavegarAlCarrito();
         }catch (Exception exception){
-            quiteDriver();
-            Assertions.fail(exception.getMessage(),exception);
-            LOGGER.error(exception.getMessage(),exception);
+            mensajeError(exception);
 
         }
     }
@@ -51,9 +46,7 @@ public class EliminarDeCarritoDeComprasStepDefinition extends WebUI {
             EliminarDeCarritoDeComprasPage eliminarDeCarritoDeComprasPage = new EliminarDeCarritoDeComprasPage(driver,3);
             eliminarDeCarritoDeComprasPage.eliminarProducto();
         }catch (Exception exception){
-            quiteDriver();
-            Assertions.fail(exception.getMessage(),exception);
-            LOGGER.error(exception.getMessage(),exception);
+            mensajeError(exception);
 
         }
     }
@@ -65,9 +58,8 @@ public class EliminarDeCarritoDeComprasStepDefinition extends WebUI {
             Assertions.assertEquals("You have no items in your shopping cart.",eliminarDeCarritoDeComprasPage.mensajeCarrito());
             quiteDriver();
         }catch (Exception exception){
-            quiteDriver();
-            Assertions.fail(exception.getMessage(),exception);
-            LOGGER.error(exception.getMessage(),exception);
+            System.out.println("Aqui esto se volvio mierda pa ");
+            mensajeError(exception);
 
         }
     }

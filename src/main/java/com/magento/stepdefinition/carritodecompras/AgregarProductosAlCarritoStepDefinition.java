@@ -19,9 +19,7 @@ public class AgregarProductosAlCarritoStepDefinition extends WebUI {
             AgregarProductosAlCarritoDeComprasPage agregarProductosAlCarritoDeComprasPage = new AgregarProductosAlCarritoDeComprasPage(driver,3);
             agregarProductosAlCarritoDeComprasPage.clickVentas();
         }catch (Exception exception){
-            Assertions.fail(exception.getMessage(),exception);
-            LOGGER.error(exception.getMessage(),exception);
-            quiteDriver();
+            mensajeError(exception);
         }
     }
 
@@ -29,15 +27,13 @@ public class AgregarProductosAlCarritoStepDefinition extends WebUI {
     public void agregaProductosDeCategoriasDiferentesAlCarritoDeCompras() {
         try{
             AgregarProductosAlCarritoDeComprasPage agregarProductosAlCarritoDeComprasPage = new AgregarProductosAlCarritoDeComprasPage(driver,3);
-            agregarProductosAlCarritoDeComprasPage.agregarProductosMujer();
+            agregarProductosAlCarritoDeComprasPage.agregarProductosMujeres();
             agregarProductosAlCarritoDeComprasPage.agregarProductosHombre();
             agregarProductosAlCarritoDeComprasPage.agregarProductosbolsos();
             agregarProductosAlCarritoDeComprasPage.clickCarritoCompras();
             agregarProductosAlCarritoDeComprasPage.clickLinkCarrito();
         }catch (Exception exception){
-            Assertions.fail(exception.getMessage(),exception);
-            LOGGER.error(exception.getMessage(),exception);
-            quiteDriver();
+            mensajeError(exception);
         }
     }
 
@@ -46,10 +42,9 @@ public class AgregarProductosAlCarritoStepDefinition extends WebUI {
         try{
             AgregarProductosAlCarritoDeComprasPage agregarProductosAlCarritoDeComprasPage = new AgregarProductosAlCarritoDeComprasPage(driver,3);
             Assertions.assertEquals(6, agregarProductosAlCarritoDeComprasPage.obtenerProductosDeCarrito().size());
-            quiteDriver();
         }catch (Exception exception){
-            Assertions.fail(exception.getMessage(),exception);
-            LOGGER.error(exception.getMessage(),exception);
+           mensajeError(exception);
+        }finally {
             quiteDriver();
         }
     }

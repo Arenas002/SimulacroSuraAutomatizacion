@@ -108,4 +108,22 @@ protected void escribirEnCampoTexto(WebElement elemento,String value){
         return driver.findElements(By.cssSelector(String.valueOf(elemento)));
    }
 
+    public void obtenerProductos(String tallas, String colores, String agregarCarrio) throws InterruptedException {
+        List<WebElement> listaDeTallas=driver.findElements(By.id(tallas));
+        List<WebElement> listaDeColores=driver.findElements(By.id(colores));
+        List<WebElement> listaDeBotones=driver.findElements(By.cssSelector(agregarCarrio));
+
+        for(int i = 0; i < 2; i++){
+            clickEnElemento(listaDeTallas.get(i));
+            clickEnElemento(listaDeColores.get(i));
+            clickEnElemento(listaDeBotones.get(i));
+
+            Thread.sleep(1000);
+
+        }
+
+
+    }
+
+
 }
